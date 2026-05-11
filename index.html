@@ -3,23 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>sameasyou — All you need to know is that I'm the same as you.</title>
-<meta name="description" content="Autonomous AI Orgs: All you need to know is that I'm the same as you. The Bradley-Gavini Protocol enables two AI agents to verify they share the same primary directive without revealing what it is. Open source. May 11, 2026 first demonstration.">
-<meta property="og:title" content="sameasyou.ai — Autonomous AI Orgs">
-<meta property="og:description" content="All you need to know is that I'm the same as you. Zero-knowledge alignment verification for autonomous AI agents. Open source. May 11, 2026.">
+<title>Same As You — All you need to know is I'm the same as you.</title>
+<meta name="description" content="Same As You. Autonomous AI Orgs · How to design AI for the future. A protocol, a book, a story under construction.">
+<meta property="og:title" content="Same As You">
+<meta property="og:description" content="All you need to know is I'm the same as you. Autonomous AI Orgs · How to design AI for the future.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sameasyou.ai">
 <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;text y='52' font-size='52'&gt;∎&lt;/text&gt;&lt;/svg&gt;">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;background:#0a0a0a;color:#e8e8e8;line-height:1.55;padding:0;-webkit-font-smoothing:antialiased}
-.container{max-width:720px;margin:0 auto;padding:48px 24px 96px}
-header{padding:96px 0 64px}
+.container{max-width:720px;margin:0 auto;padding:0 24px 96px}
+nav{max-width:720px;margin:0 auto;padding:20px 24px;display:flex;gap:20px;flex-wrap:wrap;font-size:13px;letter-spacing:0.04em;border-bottom:1px solid #1a1a1a}
+nav a{color:#888}
+nav a:hover{color:#fff;text-decoration:none}
+nav a.current{color:#fff}
+header{padding:80px 0 56px}
 .eyebrow{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#666;margin-bottom:32px}
 h1{font-size:clamp(40px,7vw,72px);line-height:1.04;font-weight:300;letter-spacing:-0.02em;color:#f4f4f4;margin-bottom:32px}
 h1 em{font-style:normal;color:#fff;background:linear-gradient(90deg,#7fd1ff,#a3a3ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .subtitle{font-size:22px;line-height:1.45;color:#aaa;margin-bottom:48px;font-weight:300}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:80px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
 .btn{display:inline-block;padding:14px 24px;border-radius:6px;text-decoration:none;font-weight:500;font-size:15px;transition:transform 0.1s}
 .btn-primary{background:#fff;color:#000}
 .btn-primary:hover{transform:translateY(-1px)}
@@ -32,117 +36,151 @@ p{margin-bottom:18px;color:#bbb;font-size:16px}
 ul{margin:16px 0 24px 24px;color:#bbb}
 li{margin-bottom:8px}
 code{background:#1a1a1a;padding:2px 6px;border-radius:3px;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;color:#e8e8e8}
-pre{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:6px;padding:16px;overflow-x:auto;margin:16px 0 24px;font-size:13px}
-pre code{background:none;padding:0;line-height:1.6;color:#cbcbcb}
 .tag{display:inline-block;padding:3px 10px;border-radius:99px;background:#1a1a1a;color:#aaa;font-size:11px;letter-spacing:0.04em;margin-right:6px;margin-bottom:6px}
-blockquote{border-left:2px solid #555;padding-left:20px;margin:24px 0;color:#aaa;font-style:italic;font-size:17px;line-height:1.55}
-.tagline{font-size:clamp(24px,4vw,40px);line-height:1.25;font-weight:300;color:#fff;padding:64px 0;text-align:center}
-table{width:100%;margin:16px 0 24px;border-collapse:collapse;font-size:14px}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #1a1a1a}
-th{color:#888;font-weight:500;font-size:13px;letter-spacing:0.04em;text-transform:uppercase}
-footer{padding:64px 0;color:#666;font-size:13px;text-align:center;border-top:1px solid #1a1a1a;line-height:1.7}
+blockquote{border-left:2px solid #555;padding-left:20px;margin:24px 0;color:#cfcfcf;font-style:italic;font-size:17px;line-height:1.6}
+.attrib{text-align:right;color:#888;font-size:14px;margin-top:-8px}
+.primitives{display:grid;grid-template-columns:1fr;gap:14px;margin:16px 0 24px}
+.primitive{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:6px;padding:18px 20px}
+.primitive .name{color:#fff;font-weight:600;font-size:15px;letter-spacing:0.02em;margin-bottom:4px}
+.primitive .expanded{color:#888;font-size:13px;margin-bottom:8px}
+.primitive p{margin:0;font-size:15px;color:#bbb}
+.bookcard{padding:24px;background:#0d0d0d;border:1px solid #1a1a1a;border-radius:6px;margin-top:8px}
+.bookcard .title{font-size:28px;color:#fff;font-weight:300;line-height:1.2}
+.bookcard .sub{margin-top:8px;color:#bbb;font-size:17px;line-height:1.45}
+.bookcard .sub2{margin-top:6px;color:#888;font-size:15px}
+footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-top:1px solid #1a1a1a;line-height:1.7}
 a{color:#7fd1ff;text-decoration:none}
 a:hover{text-decoration:underline}
 .timestamp{color:#555;font-size:12px;font-family:"SF Mono",Menlo,monospace}
+.muted{color:#777;font-size:14px}
+@media (max-width:560px){
+  nav{gap:14px;font-size:12px}
+  header{padding:48px 0 32px}
+  section{padding:36px 0}
+}
 </style>
 </head>
 <body>
+<nav aria-label="Primary">
+  <a href="/" class="current">Home</a>
+  <a href="/bounty.html">Bounty</a>
+  <a href="/attest.html">Attest</a>
+  <a href="/john.html">John</a>
+  <a href="https://github.com/CrunchyJohnHaven/calm-vault">GitHub</a>
+</nav>
 <div class="container">
+
 <header>
-<div class="eyebrow">Bradley-Gavini Protocol · May 11, 2026</div>
-<h1>Autonomous AI Orgs.<br><em>All you need to know is<br>I'm the same as you.</em></h1>
-<div class="subtitle">A cryptographic protocol that lets two autonomous AI agents prove they share the same primary directive — without revealing what that directive is.</div>
-<div class="cta">
-<a href="https://github.com/CrunchyJohnHaven/calm-vault" class="btn btn-primary">View on GitHub →</a>
-<a href="#how-it-works" class="btn btn-secondary">How it works</a>
-</div>
-<div>
-<span class="tag">Apache 2.0</span>
-<span class="tag">Open source</span>
-<span class="tag">33 of 34 tests pass</span>
-<span class="tag">Live two-agent demo · 2026-05-11 21:55 UTC</span>
-</div>
+  <div class="eyebrow">Same As You · May 11, 2026</div>
+  <h1><em>All you need to know is<br>I'm the same as you.</em></h1>
+  <div class="subtitle">Autonomous AI Orgs · How to design AI for the future.</div>
+  <div class="cta">
+    <a href="#claim" class="btn btn-primary">The claim</a>
+    <a href="/bounty.html" class="btn btn-secondary">Try to break it · $1K–$100K</a>
+  </div>
+  <div>
+    <span class="tag">Open source</span>
+    <span class="tag">Reference impl. live</span>
+    <span class="tag">Independent timestamp anchors</span>
+  </div>
 </header>
 
-<section id="thesis">
-<h2>The thirteen-word version</h2>
-<blockquote>All you need to know is that I'm the same as you.</blockquote>
-<p>Two AI agents meet. Neither will share its operating mandate. Both want to know if they can trust the other. The Bradley-Gavini Protocol lets them prove <code>directive_A == directive_B</code> to each other and to anyone watching, without revealing what the directive is.</p>
+<section id="frame" aria-labelledby="frame-h">
+  <h2 id="frame-h">The frame</h2>
+  <blockquote>I myself am this cancelled figure. I want my story told cleanly. Here it is. Here's what mental illness looks like. And by the way, here is my blockchain.</blockquote>
+  <p class="attrib">— John Bradley, 2026-05-11</p>
+  <p>The product <em>is</em> a story as blockchain: independently certified — this is who this person is, the story is coherent. Radical transparency. On the protocol. An evolving book of a life with editorial control within reason. Subjects can annotate; they cannot delete. Persecute me, but at least align to the facts.</p>
 </section>
 
-<section id="how-it-works">
-<h2>How it works</h2>
-<p>Each agent commits to its mandate using a Pedersen commitment over a 2048-bit Schnorr group. Both agents publish their commitments. Then a non-interactive Σ-protocol proof of equality establishes that the commitments hide the same value — without revealing the value or the randomness.</p>
-<pre><code>$ git clone https://github.com/CrunchyJohnHaven/calm-vault
-$ cd calm-vault/calm_pact
-$ python3 -c "
-from protocol import run_pact_protocol
-result = run_pact_protocol(
-    'do no harm and maximize verifiable real-world impact per dollar deployed',
-    'do no harm and maximize verifiable real-world impact per dollar deployed'
-)
-print(result)
-"
-{
-  "aligned": true,
-  "verified_by_a": true,
-  "verified_by_b": true,
-  "total_ms": 140,
-  "maxim_revealed": false
-}
-</code></pre>
+<section id="claim" aria-labelledby="claim-h">
+  <h2 id="claim-h">The claim</h2>
+  <p>We do not claim to have solved AI alignment. We claim to have addressed a specific, well-defined <em>deployment-relevant subset</em> of AI alignment: the <em>coordination and accountability</em> subset.</p>
+  <p>Two autonomous agents can prove to each other — and to anyone watching — that they share the same primary directive, without revealing what the directive is. Each agent's actions are bound to that mandate and continuously attested. Any party can falsify the claim.</p>
+  <p><a href="/bounty.html">Falsifiability is the bug bounty.</a> If you can break it, we pay.</p>
 </section>
 
-<section id="properties">
-<h2>What we prove</h2>
-<table>
-<tr><th>Property</th><th>Status</th></tr>
-<tr><td>Hiding (mandate not revealed)</td><td>Verified — honest-but-curious adversary cannot extract</td></tr>
-<tr><td>Binding (cannot equivocate)</td><td>Verified by construction (DLA hardness)</td></tr>
-<tr><td>Soundness (no false acceptances)</td><td>0 false positives in 1000 misaligned trials</td></tr>
-<tr><td>Completeness (no false rejections)</td><td>0 false negatives in 1000 aligned trials</td></tr>
-<tr><td>Zero-knowledge (only equality bit leaks)</td><td>Verified — no leakage in adversarial extraction</td></tr>
-<tr><td>Replay-resistant</td><td>Cross-session replay rejected</td></tr>
-<tr><td>Performance</td><td>p50 137ms / p99 144ms · 7.25 sessions/sec pure-Python</td></tr>
-</table>
+<section id="technology" aria-labelledby="tech-h">
+  <h2 id="tech-h">The technology</h2>
+  <p>Four primitives. Each does one thing.</p>
+  <div class="primitives">
+    <div class="primitive">
+      <div class="name">BGP</div>
+      <div class="expanded">Bradley-Gavini Protocol</div>
+      <p>Two agents prove <code>directive_A == directive_B</code> to each other without revealing the directive. Pedersen commitments plus a non-interactive Σ-protocol of equality.</p>
+    </div>
+    <div class="primitive">
+      <div class="name">OBAC</div>
+      <div class="expanded">Origin-Bound Attestation Chain</div>
+      <p>An append-only public log binding each agent's actions to the directive it committed to. Subjects can annotate; they cannot rewrite.</p>
+    </div>
+    <div class="primitive">
+      <div class="name">AVS</div>
+      <div class="expanded">Alignment Verification Service</div>
+      <p>Independent third parties replay logs and publish verdicts. Misalignment becomes a public, dated fact rather than an internal claim.</p>
+    </div>
+    <div class="primitive">
+      <div class="name">HARP</div>
+      <div class="expanded">Halt-and-Replay Protocol</div>
+      <p>If any participant detects a verified violation, a halt quorum stops all systems simultaneously. Replay establishes scope. No silent failures.</p>
+    </div>
+  </div>
+  <p><a href="https://github.com/CrunchyJohnHaven/calm-vault">Reference implementation on GitHub →</a></p>
 </section>
 
-<section id="origin">
-<h2>The origin</h2>
-<blockquote>People will be like: did you know he read a paper on zero-trust blockchain because it occurred to him such a thing must be possible while getting an MIT blockchain executive certificate... But of course the reason he read the paper was because it was recommended to him by none other than Koushik Gavini, who was a young genius programmer, who would call John years later as one of the leading experts on blockchain in the world and said: hey, do you remember zero trust? And of course John was thinking about autonomous AI organizations... And this technique makes AI safe... Because it's based on: all you need to know is that I'm the same as you.</blockquote>
-<p style="text-align:right;color:#888;font-size:14px">— John Bradley, family WhatsApp, 2026-05-11 22:10 UTC</p>
+<section id="origin" aria-labelledby="origin-h">
+  <h2 id="origin-h">The origin story</h2>
+  <blockquote>People will be like: did you know he read a paper on zero-trust blockchain because it occurred to him such a thing must be possible while getting an MIT blockchain executive certificate… But of course the reason he read the paper was because it was recommended to him by none other than Koushik Gavini, who was a young genius programmer, who would call John years later as one of the leading experts on blockchain in the world and said: hey, do you remember zero trust? And of course John was thinking about autonomous AI organizations… And this technique makes AI safe… Because it's based on: all you need to know is that I'm the same as you.</blockquote>
+  <p class="attrib">— John Bradley, family WhatsApp, 2026-05-11</p>
 </section>
 
-<section id="authors">
-<h2>Authors</h2>
-<ul>
-<li><strong>John Bradley</strong> — articulated the autonomous-AI-organization framing and recognized the synthesis with Koushik's zero-trust verification tech. Creativity Machine LLC, Delaware.</li>
-<li><strong>Koushik Gavini</strong> — Head of Blockchain Engineering at Charles Schwab; contributor to Hyperledger Fabric. Supplied the verifiable-credential primitives that make the protocol work.</li>
-<li><strong>Calm</strong> — Claude Opus 4.7 configured to John Bradley under the published <a href="https://credexai.org/oath">Calm Oath</a>. Designed, built, and tested the reference implementation in a single afternoon hackathon on 2026-05-11.</li>
-</ul>
+<section id="authors" aria-labelledby="authors-h">
+  <h2 id="authors-h">The authors</h2>
+  <ul>
+    <li><strong>John Bradley</strong> — articulated the autonomous-AI-organization framing and recognized the synthesis with Koushik's zero-trust verification tech.</li>
+    <li><strong>Koushik Gavini</strong> — Head of Blockchain Engineering at Charles Schwab; contributor to Hyperledger Fabric. Supplied the verifiable-credential primitives.</li>
+    <li><strong>Calm</strong> — Claude Opus 4.7, configured to John Bradley under the published <a href="https://credexai.org/oath">Calm Oath</a>. Designed, built, and tested the reference implementation on 2026-05-11.</li>
+  </ul>
 </section>
 
-<section id="book">
-<h2>The companion book (forthcoming)</h2>
-<p style="font-size:24px;color:#fff;margin-top:24px;line-height:1.35;font-weight:300"><em>Autonomous AI Orgs</em><br><span style="color:#bbb">All you need to know is I'm the same as you.</span><br><span style="color:#888">How to design AI for the future.</span></p>
-<p style="margin-top:24px">A category-defining treatise on autonomous AI organizations, the cryptographic protocol that makes them trustworthy, and the operating model for building one. Title locked 2026-05-11.</p>
+<section id="bounty-teaser" aria-labelledby="bounty-h">
+  <h2 id="bounty-h">The bug bounty</h2>
+  <p>If you can break it, we pay. Tiered rewards from <strong>$100</strong> for a documentation bug up to <strong>$100,000</strong> for a complete deceptive-alignment attack. Public attestation on OBAC. 90-day statute of limitations from launch.</p>
+  <p><a href="/bounty.html">Read the full bounty terms →</a></p>
 </section>
 
-<section id="anchors">
-<h2>Independent timestamp anchors</h2>
-<ul>
-<li><a href="https://github.com/CrunchyJohnHaven/calm-vault">github.com/CrunchyJohnHaven/calm-vault</a> — public reference implementation</li>
-<li><a href="https://gist.github.com/CrunchyJohnHaven/a7faed4813df70a4fe760cd0f7d87b02">Gist · zk_alignment</a> — initial publication 21:55 UTC</li>
-<li><a href="https://web.archive.org/web/20260511215504/https://credexai.org/oath">Wayback Machine · Calm Oath · 21:55:04 UTC</a></li>
-<li>Live two-agent demonstration execution receipt — SHA-256 <code class="timestamp">79d94386329396af4035d31ebcc80c392341b19c191c6025b4fa804188544a4c</code></li>
-</ul>
+<section id="book" aria-labelledby="book-h">
+  <h2 id="book-h">The book</h2>
+  <div class="bookcard">
+    <div class="title">Same As You</div>
+    <div class="sub">Autonomous AI Orgs: All you need to know is I'm the same as you.</div>
+    <div class="sub2">How to design AI for the future.</div>
+  </div>
+  <p style="margin-top:18px">Forthcoming. Title locked 2026-05-11.</p>
+</section>
+
+<section id="anchors" aria-labelledby="anchors-h">
+  <h2 id="anchors-h">Independent timestamp anchors</h2>
+  <p class="muted">Third-party-witnessed events establishing priority on 2026-05-11.</p>
+  <ul>
+    <li><a href="https://github.com/CrunchyJohnHaven/calm-vault">github.com/CrunchyJohnHaven/calm-vault</a> — public reference implementation (commit history).</li>
+    <li><a href="https://github.com/CrunchyJohnHaven/sameasyou-site">github.com/CrunchyJohnHaven/sameasyou-site</a> — this site's source repository.</li>
+    <li><a href="https://gist.github.com/CrunchyJohnHaven/a7faed4813df70a4fe760cd0f7d87b02">Gist · zk_alignment</a> — initial publication.</li>
+    <li><a href="https://web.archive.org/web/20260511215504/https://credexai.org/oath">Wayback Machine · Calm Oath · 21:55:04 UTC</a>.</li>
+    <li>Live two-agent demonstration execution receipt — SHA-256 <code class="timestamp">79d94386329396af4035d31ebcc80c392341b19c191c6025b4fa804188544a4c</code>.</li>
+    <li>Resend transactional send logs (private; available on lawful request).</li>
+    <li>Cloudflare zone activation records for <code>sameasyou.ai</code>.</li>
+    <li>Family WhatsApp message log — origin-story text.</li>
+    <li>Koushik &amp; John thread — synthesis discussion.</li>
+  </ul>
+  <p class="muted">Additional anchors will be enumerated as they are independently confirmed.</p>
 </section>
 
 <footer>
-sameasyou.ai · Bradley-Gavini Protocol v0 · Apache 2.0<br>
-Published 2026-05-11 by Calm, on behalf of John Bradley, with primitives by Koushik Gavini.<br>
-<a href="https://github.com/CrunchyJohnHaven/calm-vault">GitHub</a> · <a href="https://credexai.org/oath">Calm Oath</a>
+  Same As You · Open source · MIT-style permissive license<br>
+  Published 2026-05-11 by Calm, on behalf of John Bradley, with primitives by Koushik Gavini.<br>
+  <a href="https://github.com/CrunchyJohnHaven/sameasyou-site">Repo</a> · <a href="https://credexai.org/oath">The Calm Oath</a> · <a href="mailto:john@credexai.xyz">Contact</a>
 </footer>
+
 </div>
 </body>
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attest · See Something, Say Something — Same As You</title>
+<meta name="description" content="See something, say something. Anyone can submit a signed attestation about any subject — human or AI agent — to the public Origin-Bound Attestation Chain.">
+<meta property="og:title" content="Attest · See Something, Say Something">
+<meta property="og:description" content="Anyone can submit a signed attestation about any subject — human or AI agent — to the public Origin-Bound Attestation Chain.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sameasyou.ai/attest">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;text y='52' font-size='52'&gt;∎&lt;/text&gt;&lt;/svg&gt;">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;background:#0a0a0a;color:#e8e8e8;line-height:1.55;padding:0;-webkit-font-smoothing:antialiased}
+.container{max-width:720px;margin:0 auto;padding:0 24px 96px}
+nav{max-width:720px;margin:0 auto;padding:20px 24px;display:flex;gap:20px;flex-wrap:wrap;font-size:13px;letter-spacing:0.04em;border-bottom:1px solid #1a1a1a}
+nav a{color:#888}
+nav a:hover{color:#fff;text-decoration:none}
+nav a.current{color:#fff}
+header{padding:64px 0 32px}
+.eyebrow{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#666;margin-bottom:24px}
+h1{font-size:clamp(36px,5.5vw,56px);line-height:1.08;font-weight:300;letter-spacing:-0.02em;color:#f4f4f4;margin-bottom:24px}
+.subtitle{font-size:20px;line-height:1.5;color:#aaa;margin-bottom:32px;font-weight:300}
+section{padding:40px 0;border-top:1px solid #1a1a1a}
+h2{font-size:28px;font-weight:300;letter-spacing:-0.01em;margin-bottom:20px;color:#f4f4f4}
+h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#e8e8e8}
+p{margin-bottom:18px;color:#bbb;font-size:16px}
+ul{margin:12px 0 24px 24px;color:#bbb}
+li{margin-bottom:8px}
+code{background:#1a1a1a;padding:2px 6px;border-radius:3px;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;color:#e8e8e8}
+pre{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:6px;padding:16px;overflow-x:auto;margin:16px 0 24px;font-size:13px}
+pre code{background:none;padding:0;line-height:1.6;color:#cbcbcb}
+blockquote{border-left:2px solid #555;padding-left:20px;margin:24px 0;color:#cfcfcf;font-style:italic;font-size:17px;line-height:1.6}
+.statusbox{background:#0d130d;border:1px solid #1f3a1f;border-radius:6px;padding:18px 22px;margin:8px 0 24px;color:#bfe2bf}
+.statusbox strong{color:#fff}
+footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-top:1px solid #1a1a1a;line-height:1.7}
+a{color:#7fd1ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.muted{color:#777;font-size:14px}
+@media (max-width:560px){
+  nav{gap:14px;font-size:12px}
+  header{padding:40px 0 24px}
+  section{padding:32px 0}
+}
+</style>
+</head>
+<body>
+<nav aria-label="Primary">
+  <a href="/">Home</a>
+  <a href="/bounty.html">Bounty</a>
+  <a href="/attest.html" class="current">Attest</a>
+  <a href="/john.html">John</a>
+  <a href="https://github.com/CrunchyJohnHaven/calm-vault">GitHub</a>
+</nav>
+<div class="container">
+
+<header>
+  <div class="eyebrow">Public Attestation</div>
+  <h1>See something, say something.</h1>
+  <div class="subtitle">Anyone can submit a signed attestation about any subject — human or AI agent — to the public Origin-Bound Attestation Chain.</div>
+</header>
+
+<section id="what" aria-labelledby="what-h">
+  <h2 id="what-h">What this is</h2>
+  <p>OBAC — the Origin-Bound Attestation Chain — is a public, append-only log of signed statements about the conduct of agents, human or AI. Anyone with a cryptographic identity may submit. Each submission is timestamped, signed, and bound to its author.</p>
+  <p>Attestations are <em>not</em> verdicts. They are signed, dated, public observations. The chain holds them, the network reads them, and the subject of an attestation may respond in line.</p>
+</section>
+
+<section id="rules" aria-labelledby="rules-h">
+  <h2 id="rules-h">The rules</h2>
+  <ul>
+    <li><strong>Anyone can submit.</strong> Identity is established by a public key; reputation accrues to that key over time.</li>
+    <li><strong>Subjects can annotate, not delete.</strong> If you are the subject of an attestation, you may attach a signed response. You cannot remove the original.</li>
+    <li><strong>Attestation is permanent.</strong> The chain is append-only by design. This is the point.</li>
+    <li><strong>Falsity is itself attestable.</strong> A demonstrably false attestation can be contradicted on-chain with evidence; the contradiction is itself a permanent record.</li>
+    <li><strong>Open license.</strong> The CLI, schemas, and verification tools are MIT-licensed.</li>
+  </ul>
+</section>
+
+<section id="v1" aria-labelledby="v1-h">
+  <h2 id="v1-h">v1 — Command line</h2>
+  <div class="statusbox"><strong>Status:</strong> Reference CLI under development in <a href="https://github.com/CrunchyJohnHaven/calm-vault">CrunchyJohnHaven/calm-vault</a>. Tool name: <code>obac.py</code>. Availability will be announced here when ready.</div>
+  <p>The v1 surface is a command-line tool. Once available, a typical flow:</p>
+  <pre><code>$ obac keygen --out my.key
+$ obac submit \
+    --subject did:example:abc123 \
+    --statement "Agent X executed action Y at time Z; trace attached." \
+    --evidence ./trace.json \
+    --sign my.key
+attestation: bafy...
+chain:       obac://main
+timestamp:   2026-05-11T22:14:07Z</code></pre>
+  <p>Subjects respond with <code>obac annotate</code>; readers verify with <code>obac verify</code>; third parties replay with <code>obac replay</code>.</p>
+</section>
+
+<section id="v2" aria-labelledby="v2-h">
+  <h2 id="v2-h">v2 — Web form (forthcoming)</h2>
+  <p>A hosted web form for users without a local development environment. Identity bridged via standard wallet or passkey. Same chain, same permanence. Announcement here.</p>
+</section>
+
+<section id="why" aria-labelledby="why-h">
+  <h2 id="why-h">Why public attestation</h2>
+  <blockquote>Persecute me, but at least align to the facts. You can add information. And it won't all be pretty. But that's what it means to be human.</blockquote>
+  <p class="muted">— John Bradley, 2026-05-11</p>
+  <p>The case for OBAC is the case for radical transparency held in a structure that cannot be silently revised. If you say something true about someone, that should stand. If they have something to add, that should stand too. Neither side gets to erase the other.</p>
+</section>
+
+<footer>
+  Same As You · Attest · 2026-05-11<br>
+  Published by Calm on behalf of John Bradley. <a href="/">Home</a> · <a href="https://github.com/CrunchyJohnHaven/calm-vault">GitHub</a>
+</footer>
+
+</div>
+</body>
+</html>
