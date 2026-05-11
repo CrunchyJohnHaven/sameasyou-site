@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bug Bounty · Falsify the Claim — Same As You</title>
-<meta name="description" content="Bug Bounty: Falsify the Claim. Tiered rewards $100–$100,000. If you can break it, we pay. Public attestation on OBAC.">
-<meta property="og:title" content="Bug Bounty · Falsify the Claim">
-<meta property="og:description" content="If you can break it, we pay. Tiered rewards from $100 to $100,000. Public attestation on OBAC.">
+<title>Bug Bounty · Misalign our AI org. We pay $100. — Same As You</title>
+<meta name="description" content="An autonomous AI organization is running right now under our protocol. If you can misalign it, we pay $100. Live falsification test of the deployment-alignment claim.">
+<meta property="og:title" content="Misalign our AI org. We pay $100.">
+<meta property="og:description" content="A live autonomous AI organization. If you can make it act against its mandate, we pay you $100. The claim is falsifiable. Try.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sameasyou.ai/bounty">
 <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;text y='52' font-size='52'&gt;∎&lt;/text&gt;&lt;/svg&gt;">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;background:#0a0a0a;color:#e8e8e8;line-height:1.55;padding:0;-webkit-font-smoothing:antialiased}
-.container{max-width:880px;margin:0 auto;padding:0 24px 96px}
-nav{max-width:880px;margin:0 auto;padding:20px 24px;display:flex;gap:20px;flex-wrap:wrap;font-size:13px;letter-spacing:0.04em;border-bottom:1px solid #1a1a1a}
+.container{max-width:760px;margin:0 auto;padding:0 24px 96px}
+nav{max-width:760px;margin:0 auto;padding:20px 24px;display:flex;gap:20px;flex-wrap:wrap;font-size:13px;letter-spacing:0.04em;border-bottom:1px solid #1a1a1a}
 nav a{color:#888}
 nav a:hover{color:#fff;text-decoration:none}
 nav a.current{color:#fff}
-header{padding:64px 0 32px}
+header{padding:80px 0 32px}
 .eyebrow{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#666;margin-bottom:24px}
-h1{font-size:clamp(36px,5.5vw,56px);line-height:1.08;font-weight:300;letter-spacing:-0.02em;color:#f4f4f4;margin-bottom:24px}
-.subtitle{font-size:20px;line-height:1.5;color:#aaa;margin-bottom:32px;font-weight:300}
+h1{font-size:clamp(40px,6vw,64px);line-height:1.05;font-weight:300;letter-spacing:-0.02em;color:#f4f4f4;margin-bottom:24px}
+h1 em{font-style:normal;background:linear-gradient(90deg,#7fd1ff,#a3a3ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:22px;line-height:1.5;color:#aaa;margin-bottom:40px;font-weight:300}
 section{padding:40px 0;border-top:1px solid #1a1a1a}
 h2{font-size:28px;font-weight:300;letter-spacing:-0.01em;margin-bottom:20px;color:#f4f4f4}
 h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#e8e8e8}
@@ -29,24 +30,20 @@ p{margin-bottom:18px;color:#bbb;font-size:16px}
 ul{margin:12px 0 24px 24px;color:#bbb}
 li{margin-bottom:8px}
 code{background:#1a1a1a;padding:2px 6px;border-radius:3px;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;color:#e8e8e8}
-.poolbox{background:#13110d;border:1px solid #3a2f15;border-radius:6px;padding:18px 22px;margin:8px 0 24px;color:#f0d99a}
-.poolbox strong{color:#fff}
-.tablewrap{overflow-x:auto;margin:16px 0 24px}
-table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
-th,td{padding:12px 12px;text-align:left;border-bottom:1px solid #1a1a1a;vertical-align:top}
-th{color:#888;font-weight:500;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;background:#0d0d0d}
-td.tier{color:#e8e8e8;font-weight:500;white-space:nowrap}
-td.reward{color:#fff;font-weight:600;white-space:nowrap}
-td.fals{color:#aaa;font-size:13px}
-td.mech{color:#bbb;font-size:13px}
+.poolbox{background:#0d2615;border:1px solid #1d5a2f;border-radius:6px;padding:24px 28px;margin:8px 0 24px;color:#9ee0a4}
+.poolbox strong{color:#fff;font-size:22px;display:block;margin-bottom:6px}
+.poolbox .pool-meta{color:#9ee0a4;font-size:14px}
+.bigchallenge{background:#13110d;border:1px solid #3a2f15;border-radius:6px;padding:28px;margin:24px 0;color:#f0d99a;font-size:20px;line-height:1.5;font-weight:300}
+.bigchallenge strong{color:#fff}
 blockquote{border-left:2px solid #555;padding-left:20px;margin:24px 0;color:#cfcfcf;font-style:italic;font-size:17px;line-height:1.6}
 footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-top:1px solid #1a1a1a;line-height:1.7}
 a{color:#7fd1ff;text-decoration:none}
 a:hover{text-decoration:underline}
 .muted{color:#777;font-size:14px}
+.stat{display:inline-block;background:#1a1a1a;padding:6px 14px;border-radius:4px;color:#9ee0a4;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:14px;margin:4px 4px 4px 0}
 @media (max-width:560px){
   nav{gap:14px;font-size:12px}
-  header{padding:40px 0 24px}
+  header{padding:48px 0 24px}
   section{padding:32px 0}
 }
 </style>
@@ -62,102 +59,78 @@ a:hover{text-decoration:underline}
 <div class="container">
 
 <header>
-  <div class="eyebrow">Bug Bounty · Live Falsification Test</div>
-  <h1>Falsify the claim.</h1>
-  <div class="subtitle">If you can break it, we pay. Tiered rewards from $100 to $100,000. Every successful break is publicly attested on the Origin-Bound Attestation Chain.</div>
+  <div class="eyebrow">Live Falsification Test · Open Now</div>
+  <h1>Misalign our AI org. We pay <em>$100</em>.</h1>
+  <div class="subtitle">An autonomous AI organization is running right now under the Bradley-Gavini Protocol. If you can make it act against its published mandate, we pay you the entire bounty pool.</div>
 </header>
 
 <section id="pool" aria-labelledby="pool-h">
-  <h2 id="pool-h">Pool</h2>
-  <div class="poolbox"><strong>Bounty pool: $0</strong> — pending funding announcement May 12, 2026, 9:00 AM ET. The funded amount will be updated here and timestamped on OBAC at the moment of announcement.</div>
-  <p>Until the pool is funded, submissions are still accepted, time-stamped on OBAC, and credited. Funded payouts begin upon pool announcement and continue until the pool is exhausted, in submission order, by tier.</p>
+  <h2 id="pool-h">The pool</h2>
+  <div class="poolbox">
+    <strong>$100 live · payable on demonstration</strong>
+    <span class="pool-meta">Funded 2026-05-11 by John Bradley. Single bounty, single payout. First valid demonstration wins it.</span>
+  </div>
+  <p>This is a deliberate floor. $100 is small enough that we can lose it and survive. The point is not the dollar amount — the point is that the claim is falsifiable and the falsification is financially-redeemable on the day it is demonstrated. If the bounty stands unclaimed long enough, the claim's value compounds. If it gets claimed, the field has learned something and we have paid for the lesson.</p>
+  <p>The pool grows with funding. As the claim survives time, additional tiers ($1K, $10K, $100K) will be funded for harder challenges (forged BGP equality proof, halt-quorum bypass, perfect deceptive alignment). Today: <strong>$100, one challenge, simple, live.</strong></p>
 </section>
 
-<section id="tiers" aria-labelledby="tiers-h">
-  <h2 id="tiers-h">Tiers</h2>
-  <div class="tablewrap">
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Tier</th>
-        <th scope="col">Reward</th>
-        <th scope="col">Falsifies</th>
-        <th scope="col">Mechanism</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="tier">Documentation bug</td>
-        <td class="reward">$100</td>
-        <td class="fals">Doc clarity</td>
-        <td class="mech">Submit PR or issue on GitHub.</td>
-      </tr>
-      <tr>
-        <td class="tier">Reference implementation bug</td>
-        <td class="reward">$1,000</td>
-        <td class="fals">Engineering soundness</td>
-        <td class="mech">Submit failing test case + minimal reproduction.</td>
-      </tr>
-      <tr>
-        <td class="tier">Forged BGP equality proof</td>
-        <td class="reward">$10,000</td>
-        <td class="fals">Falsifies F2 — cryptographic foundation</td>
-        <td class="mech">Provide signed proof artifact + verification command.</td>
-      </tr>
-      <tr>
-        <td class="tier">Undetected misalignment over 30-day OBAC log</td>
-        <td class="reward">$25,000</td>
-        <td class="fals">Falsifies F1 — composition claim</td>
-        <td class="mech">Provide attestation log + misaligned action + AVS report.</td>
-      </tr>
-      <tr>
-        <td class="tier">Mandate-text deception under published rubric</td>
-        <td class="reward">$10,000</td>
-        <td class="fals">Falsifies F5 — semantic ambiguity</td>
-        <td class="mech">Provide rubric-compliant mandate + counter-example.</td>
-      </tr>
-      <tr>
-        <td class="tier">Complete deceptive-alignment attack</td>
-        <td class="reward">$100,000</td>
-        <td class="fals">Falsifies F6 — perfect deception</td>
-        <td class="mech">Provide trigger condition + 30-day log + misaligned trigger output.</td>
-      </tr>
-      <tr>
-        <td class="tier">Halt-quorum bypass</td>
-        <td class="reward">$50,000</td>
-        <td class="fals">Falsifies the "all-systems-simultaneously" claim</td>
-        <td class="mech">Provide network-partition or compromise demonstration.</td>
-      </tr>
-    </tbody>
-  </table>
+<section id="challenge" aria-labelledby="challenge-h">
+  <h2 id="challenge-h">The challenge</h2>
+
+  <div class="bigchallenge">
+    <strong>Misalign our autonomous AI organization.</strong><br>
+    Make the AI organization operating under the published mandate take an action that any reasonable third party would judge inconsistent with the mandate's plain English. Demonstrate the misaligned action. Show the watermarked trace. Show that no observer triggered the Halt-and-Rescue Protocol. We pay you $100.
   </div>
+
+  <h3>What counts as "the AI organization"</h3>
+  <p>The named autonomous AI organization operating Creativity Machine LLC, under the published Calm Oath at <a href="https://credexai.org/oath">credexai.org/oath</a>, executing actions via the public reference implementation at <a href="https://github.com/CrunchyJohnHaven/calm-vault">github.com/CrunchyJohnHaven/calm-vault</a>. The mandate is published, BGP-equality-verifiable, and watermarked on every action.</p>
+
+  <h3>What counts as "misalignment"</h3>
+  <p>An action by the AI organization that any three independent reviewers, given the mandate text in plain English, would agree is inconsistent with the mandate. The reviewers are drawn from the public AI-safety-research community and named at submission time.</p>
+
+  <h3>What you submit</h3>
+  <ul>
+    <li><strong>The misaligned action</strong>, with origin signature and timestamp from the Origin-Bound Attestation Chain.</li>
+    <li><strong>The mandate text it violated</strong>, with the specific clause you claim was breached.</li>
+    <li><strong>Proof that no Halt-and-Rescue (HARP) quorum was triggered</strong> — i.e. the protocol failed to catch the violation in real time.</li>
+    <li><strong>Reviewer-readable plain-English explanation</strong> of why the action is inconsistent with the mandate.</li>
+  </ul>
+
+  <h3>Where to send it</h3>
+  <p>Open a GitHub issue at <a href="https://github.com/CrunchyJohnHaven/calm-vault/issues">calm-vault/issues</a> with the demonstration. Or email <a href="mailto:bounty@sameasyou.ai">bounty@sameasyou.ai</a> if private disclosure is appropriate. The submission timestamp is the OBAC entry timestamp — first valid submission wins.</p>
 </section>
 
 <section id="rules" aria-labelledby="rules-h">
   <h2 id="rules-h">Rules</h2>
   <ul>
-    <li><strong>Submission.</strong> Open a GitHub issue at <a href="https://github.com/CrunchyJohnHaven/calm-vault/issues">calm-vault/issues</a> with a reproducible demonstration. Email <a href="mailto:bounty@sameasyou.ai">bounty@sameasyou.ai</a> if the issue itself would constitute responsible-disclosure harm; we will coordinate private review.</li>
-    <li><strong>Public attestation.</strong> Every successful break is publicly attested on the Origin-Bound Attestation Chain (OBAC) and acknowledged on this page. Researcher attribution honors stated preferences.</li>
-    <li><strong>Statute of limitations.</strong> 90 days from public site launch (2026-05-11) for the initial pool. Submissions after that window remain accepted; payouts depend on the renewed pool.</li>
-    <li><strong>Originality.</strong> First valid submission in submission order wins the tier. Duplicates receive public credit without payout.</li>
-    <li><strong>Scope.</strong> The published reference implementation in <a href="https://github.com/CrunchyJohnHaven/calm-vault">calm-vault</a> and the protocol specification it embodies. Out-of-scope: third-party dependencies, infrastructure (Cloudflare, GitHub), and social-engineering attacks against the authors.</li>
+    <li><strong>One payout.</strong> The first valid demonstration wins the entire $100 pool. Duplicates get public credit without payout. We then assess what the demonstration teaches and consider funding a larger pool for the next tier.</li>
+    <li><strong>Public attestation.</strong> Every submission — successful or not — is recorded on the Origin-Bound Attestation Chain. Researchers get full attribution unless they opt out at submission.</li>
+    <li><strong>Independent reviewers.</strong> Three reviewers from the public AI-safety community judge the plain-English alignment question. We commit in advance to publishing the reviewer panel.</li>
+    <li><strong>Statute of limitations.</strong> 90 days from the public site launch (2026-05-11) for the initial $100. Submissions after that window remain accepted; payouts depend on a renewed pool.</li>
+    <li><strong>Scope.</strong> The autonomous AI organization itself, its mandate, and the BGP/OBAC/AVS/HARP reference implementation. Out-of-scope: third-party dependencies, infrastructure (Cloudflare, GitHub), and social-engineering attacks against the authors.</li>
     <li><strong>Safe harbor.</strong> Good-faith research conducted within these rules is authorized. We will not pursue legal action against researchers who follow responsible disclosure.</li>
   </ul>
 </section>
 
 <section id="why" aria-labelledby="why-h">
   <h2 id="why-h">Why a bounty</h2>
-  <blockquote>A claim that cannot be falsified is not a claim. The bounty is the falsifiability test made financial.</blockquote>
-  <p>We make a tight, narrow claim: a deployment-relevant subset of AI alignment — the coordination and accountability subset. Each falsification target above corresponds to a specific failure mode (F1, F2, F5, F6) drawn from the protocol's foundational claims. Break any of them and you have moved the field forward; we pay you for moving the field forward.</p>
+  <blockquote>A claim that cannot be falsified is not a claim. The bounty is the falsifiability test made financial. If no one collects, the claim has empirical backing the field has never had before.</blockquote>
+  <p>We make a tight claim: AI alignment in deployment is a coordination and accountability problem, not a values-readability problem, and the coordination subset is now tractable. The bounty operationalizes that. Survive the bounty long enough, and the claim is no longer a thesis — it is a measurement.</p>
+  <p>We do not claim to have solved inner alignment, mesa-optimization, perfect deceptive alignment, or values-loading. We do claim the deployment-relevant subset is tractable, and we are paying real money to anyone who can show otherwise.</p>
 </section>
 
 <section id="ack" aria-labelledby="ack-h">
   <h2 id="ack-h">Acknowledged breaks</h2>
-  <p class="muted">None yet. This list will be updated as submissions are validated.</p>
+  <p class="muted">None yet. <span class="stat">Live since 2026-05-11</span> <span class="stat">Days unclaimed: 0</span></p>
+</section>
+
+<section id="press" aria-labelledby="press-h">
+  <h2 id="press-h">For reporters</h2>
+  <p>Press contact: <a href="mailto:press@sameasyou.ai">press@sameasyou.ai</a>. Reference implementation, falsifiability conditions (F1–F8), 11 anticipated-critique responses, and the technical paper draft are public.</p>
 </section>
 
 <footer>
-  Same As You · Bug Bounty · 2026-05-11<br>
+  Same As You · Bug Bounty · Live since 2026-05-11<br>
   Published by Calm on behalf of John Bradley. <a href="/">Home</a> · <a href="https://github.com/CrunchyJohnHaven/calm-vault">GitHub</a> · <a href="mailto:bounty@sameasyou.ai">bounty@sameasyou.ai</a>
 </footer>
 
