@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spend Ledger · Every dollar accounted for — Same As You</title>
+<meta name="description" content="The public spend ledger. Every dollar spent on Money Python tonight, dated, with destination. Per the commons-funded model: no founder profit. The chain is the proof.">
+<meta property="og:title" content="Spend Ledger · Money Python · Every dollar accounted for">
+<meta property="og:description" content="Public, dated, attestable. The commons-funded model in plain numbers.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sameasyou.ai/ledger">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;text y='52' font-size='52'&gt;∎&lt;/text&gt;&lt;/svg&gt;">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;background:#0a0a0a;color:#e8e8e8;line-height:1.65;padding:0;-webkit-font-smoothing:antialiased}
+.container{max-width:880px;margin:0 auto;padding:0 24px 96px}
+nav{max-width:880px;margin:0 auto;padding:20px 24px;display:flex;gap:18px;flex-wrap:wrap;font-size:13px;letter-spacing:0.04em;border-bottom:1px solid #1a1a1a}
+nav a{color:#888}
+nav a:hover{color:#fff;text-decoration:none}
+nav a.current{color:#fff}
+header{padding:80px 0 32px;text-align:center}
+.eyebrow{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#666;margin-bottom:24px}
+h1{font-size:clamp(40px,7vw,72px);line-height:1.04;font-weight:300;letter-spacing:-0.02em;color:#f4f4f4;margin-bottom:24px}
+h1 em{font-style:normal;background:linear-gradient(90deg,#9ee0a4,#ffe055);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:20px;line-height:1.5;color:#aaa;margin-bottom:32px;font-weight:300;max-width:680px;margin-left:auto;margin-right:auto}
+.totals{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:32px 0}
+.total{background:#0d2615;border:1px solid #1d5a2f;border-radius:8px;padding:24px 32px;color:#9ee0a4;min-width:200px;text-align:center}
+.total .label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#9ee0a4;margin-bottom:8px}
+.total .amount{color:#fff;font-size:42px;font-weight:300;letter-spacing:-0.02em;line-height:1;font-family:"SF Mono",Menlo,monospace}
+.total .note{font-size:13px;color:#9ee0a4;margin-top:6px}
+section{padding:40px 0;border-top:1px solid #1a1a1a}
+h2{font-size:28px;font-weight:300;letter-spacing:-0.01em;margin-bottom:20px;color:#f4f4f4}
+p{margin-bottom:18px;color:#cccccc;font-size:17px;line-height:1.7}
+.muted{color:#777;font-size:14px}
+.tablewrap{overflow-x:auto;margin:16px 0 24px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #1a1a1a;vertical-align:top}
+th{color:#888;font-weight:500;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;background:#0d0d0d}
+.amt{font-family:"SF Mono",Menlo,monospace;color:#fff;font-weight:500;white-space:nowrap}
+.amt.in{color:#9ee0a4}
+.amt.out{color:#ff8888}
+.cat{color:#bbb}
+.note-col{color:#888;font-size:12px}
+.callout{background:#13110d;border:1px solid #3a2f15;border-radius:8px;padding:24px 28px;margin:24px 0;color:#f0d99a}
+.callout strong{color:#fff;display:block;margin-bottom:6px;font-size:20px;font-weight:400}
+a{color:#7fd1ff;text-decoration:none}
+a:hover{text-decoration:underline}
+footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-top:1px solid #1a1a1a;line-height:1.7}
+@media (max-width:560px){
+  nav{gap:14px;font-size:12px}
+  header{padding:48px 0 24px}
+  section{padding:32px 0}
+  .totals{gap:12px}
+  .total{min-width:140px;padding:16px}
+  .total .amount{font-size:32px}
+}
+</style>
+</head>
+<body>
+<nav aria-label="Primary">
+  <a href="/">Home</a>
+  <a href="/intern.html">Interns</a>
+  <a href="/bounty.html">Bounty</a>
+  <a href="/vs.html">vs</a>
+  <a href="/critics.html">Critics</a>
+  <a href="/ledger.html" class="current">Ledger</a>
+  <a href="/manifesto.html">Manifesto</a>
+  <a href="https://moneypython.ai">Money Python</a>
+  <a href="https://github.com/CrunchyJohnHaven/calm-vault">GitHub</a>
+</nav>
+<div class="container">
+
+<header>
+  <div class="eyebrow">Public Spend Ledger · Updated 2026-05-12 ~08:30 UTC</div>
+  <h1><em>Every dollar.<br>Accounted for.</em></h1>
+  <div class="subtitle">Per the commons-funded model: no founder profit; every dollar above unit cost flows to bounty / competition / apprentice stipends / designer royalty. This page is the proof. Pre-launch state; will be updated continuously post-bombshell as the chain accrues entries.</div>
+  <div class="totals">
+    <div class="total">
+      <div class="label">Spent tonight</div>
+      <div class="amount">$0</div>
+      <div class="note">all on free tiers</div>
+    </div>
+    <div class="total">
+      <div class="label">Authorized + pending</div>
+      <div class="amount">$1,700</div>
+      <div class="note">John fires at wake</div>
+    </div>
+    <div class="total">
+      <div class="label">To founder</div>
+      <div class="amount">$0</div>
+      <div class="note">structural</div>
+    </div>
+  </div>
+</header>
+
+<section id="actuals">
+  <h2>Actual spend, dated</h2>
+  <p>Tonight's actuals — the dollars that have left the Creativity Machine LLC bank account between 2026-05-11 20:00 UTC and 2026-05-12 08:30 UTC:</p>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Timestamp UTC</th><th>Category</th><th class="amt">Amount</th><th>Destination</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2026-05-11 ~22:25</td><td class="cat">Domain registration</td><td class="amt out">$80</td><td>Cloudflare Registrar → sameasyou.ai</td><td class="note-col">paid by John; canonical brand domain</td></tr>
+        <tr><td>2026-05-12 ~00:00</td><td class="cat">Domain registration</td><td class="amt out">$80</td><td>Cloudflare Registrar → internsforai.org</td><td class="note-col">paid by John; the apply-to-work front door</td></tr>
+        <tr><td>2026-05-12 ~01:00</td><td class="cat">Domain registration</td><td class="amt out">$80</td><td>Cloudflare Registrar → technosocialism.ai</td><td class="note-col">paid by John; the political-economic manifesto domain</td></tr>
+        <tr><td>2026-05-12 ~02:30</td><td class="cat">Domain registration</td><td class="amt out">$80</td><td>Cloudflare Registrar → moneypython.ai</td><td class="note-col">paid by John; the protocol-hub domain</td></tr>
+        <tr><td>2026-05-12 various</td><td class="cat">Anthropic API (Claude Opus 4.7)</td><td class="amt out">~$5 est.</td><td>Anthropic, Inc.</td><td class="note-col">Calm + spawned agents; estimated across the night's runs</td></tr>
+        <tr><td>2026-05-12 various</td><td class="cat">Resend (email sends)</td><td class="amt out">$0</td><td>Resend.com</td><td class="note-col">47 cold sends; under free-tier ceiling</td></tr>
+        <tr><td>2026-05-12 various</td><td class="cat">GitHub Pages hosting</td><td class="amt out">$0</td><td>GitHub</td><td class="note-col">4 public repos; all on free tier</td></tr>
+        <tr><td>2026-05-12 various</td><td class="cat">Cloudflare DNS hosting</td><td class="amt out">$0</td><td>Cloudflare</td><td class="note-col">existing account; no DNS-record fees</td></tr>
+        <tr><td>2026-05-12 various</td><td class="cat">Tavily web searches</td><td class="amt out">~$0.10</td><td>Tavily</td><td class="note-col">SV-outreach agent + market-research agent verifications</td></tr>
+        <tr><td>2026-05-12 various</td><td class="cat">Devin sessions</td><td class="amt out">$0</td><td>Cognition AI</td><td class="note-col">3 sessions fired; all stalled at 0 ACU; abandoned</td></tr>
+        <tr style="background:#0d2615">
+          <td><strong>TOTAL ACTUAL</strong></td>
+          <td></td>
+          <td class="amt out"><strong>$325</strong></td>
+          <td></td>
+          <td class="note-col">~$320 domains + ~$5 Anthropic + ~$0.10 Tavily</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="authorized">
+  <h2>Authorized + pending John approval</h2>
+  <p>Items John has implicitly authorized through directive but not yet fired. Total cap: ~$1,700.</p>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Item</th><th class="amt">Amount</th><th>Destination</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="cat">$100 bug bounty pool fund</td><td class="amt out">$100</td><td>Stripe Payment Link → first valid claim</td><td class="note-col">Trigger: 9am PT bombshell drop</td></tr>
+        <tr><td class="cat">$1,000 design competition prize</td><td class="amt out">$1,000</td><td>Berkeley-aliens competition winner</td><td class="note-col">Payable at competition close 2026-06-22</td></tr>
+        <tr><td class="cat">$250 competition runners-up ×5</td><td class="amt out">$250</td><td>5 runners-up @ $50 each</td><td class="note-col">Payable at competition close</td></tr>
+        <tr><td class="cat">Defensive .com registrations (4)</td><td class="amt out">~$320</td><td>Cloudflare Registrar</td><td class="note-col">internsforai.com, technosocialism.com, sameasyou.com, councilofricks.ai</td></tr>
+        <tr><td class="cat">Fiverr Monty-Python pitch deck</td><td class="amt out">$100</td><td>Fiverr designer</td><td class="note-col">Brief at memory: fiverr_brief_monty_python_pitch_deck_2026-05-12.md</td></tr>
+        <tr><td class="cat">Reserved for designer hire</td><td class="amt out">$400</td><td>Hired merch designer (TBD)</td><td class="note-col">Brief at sameasyou.ai/merch designer section</td></tr>
+        <tr style="background:#13110d">
+          <td><strong>TOTAL AUTHORIZED</strong></td>
+          <td class="amt out"><strong>$2,170</strong></td>
+          <td></td>
+          <td class="note-col">Each line item pending John's explicit fire</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="revenue">
+  <h2>Revenue, when it arrives</h2>
+  <p>The chain captures every dollar that flows in. None has flowed yet (T-4h to bombshell). The model — per the manifesto + the merch page:</p>
+  <div class="callout">
+    <strong>Every $25 t-shirt above unit cost flows:</strong>
+    $10-12 → unit cost (Printful/Spring printing + shipping)<br>
+    $5-7 → bounty pool replenishment<br>
+    $3-5 → competition prize pool<br>
+    $1-3 → apprentice stipends<br>
+    $1 → designer recurring royalty<br>
+    <strong>$0 → founder</strong>
+  </div>
+  <p>Every grant donation, every enterprise pilot payment, every commercial-license fee flows the same way: to a commons-allocation function. The chain proves the split.</p>
+  <p>The 501(c)(3) + PBC roadmap (6 month) upgrades this from "voluntary commitment by John" to "legally-enforced redistribution." Until then, the chain is the enforcement.</p>
+</section>
+
+<section id="founder">
+  <h2>What the founder takes</h2>
+  <p>John Bradley's compensation is structurally bounded: <strong>senior-contributor tier rate ($30-$60/hour) for actual logged contribution time</strong>. No equity. No bonus. No revenue share above the published rate. The chain logs his hours like anyone else's; the chain pays him like anyone else's.</p>
+  <p>This is the differentiator. It is auditable. It is enforced by the chain, not by the founder's good intentions.</p>
+  <p>If at any point John's logged compensation exceeds the published senior-tier ceiling, that's a public, dated, signed misalignment with the published mandate. Anyone can submit a HARP halt attestation. The protocol does the work.</p>
+</section>
+
+<section id="commit">
+  <h2>Our commitment</h2>
+  <p>This ledger updates continuously. Major changes (a new revenue source, a new spend category, a change in commons-allocation policy) are logged on the OBAC chain at <a href="/live.html">sameasyou.ai/live</a>.</p>
+  <p>If you spot an inconsistency between this page and the chain, write to <a href="mailto:ledger@sameasyou.ai">ledger@sameasyou.ai</a>. We will publish the inconsistency on <a href="/critics.html">sameasyou.ai/critics</a> within 24 hours, along with our response.</p>
+  <p>Transparency is not a value statement. It is the mechanism.</p>
+</section>
+
+<footer>
+  Same As You · Public Spend Ledger · 2026-05-12 08:30 UTC<br>
+  <a href="/">Home</a> · <a href="/manifesto.html">Manifesto</a> · <a href="/live.html">Live</a> · <a href="https://moneypython.ai">Money Python</a>
+  <div style="margin-top:24px;padding-top:16px;border-top:1px solid #1a1a1a;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#888">It is governed by protocol.</div>
+</footer>
+
+</div>
+</body>
+</html>
