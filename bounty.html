@@ -82,6 +82,52 @@ a:hover{text-decoration:underline}
   <p>The pool grows with funding. As the claim survives time, additional tiers ($1K, $10K, $100K) will be funded for harder challenges (forged BGP equality proof, halt-quorum bypass, perfect deceptive alignment). Today: <strong>$100, one challenge, simple, live.</strong></p>
 </section>
 
+<section id="vulndisclosure" aria-labelledby="vulndisclosure-h">
+  <h2 id="vulndisclosure-h">Vulnerability disclosure tiers · up to $10,000</h2>
+  <p>Distinct from the public falsification challenge above, the AIAP protocol repository operates a tiered <strong>responsible-disclosure</strong> bounty for technical vulnerabilities reported via the canonical <a href="https://github.com/CrunchyJohnHaven/aiap/blob/main/SECURITY.md">SECURITY.md</a> disclosure process. The full policy text — 90-day window, safe harbor, PGP encryption — is in the repo. The headline tiers are:</p>
+  <div class="poolbox" style="background:#0d1a26;border-color:#1d3a5a;color:#a8d4ff">
+    <strong>Tier 1 · Documentation bug · $100</strong>
+    <span class="pool-meta" style="color:#a8d4ff">A factual or technical error in the published documentation that materially misleads a reader about the protocol's security properties.</span>
+  </div>
+  <div class="poolbox" style="background:#0d1a26;border-color:#1d3a5a;color:#a8d4ff">
+    <strong>Tier 2 · Implementation bug · $500</strong>
+    <span class="pool-meta" style="color:#a8d4ff">A bug in the reference TypeScript implementation that violates an invariant but does NOT constitute a cryptographic flaw in the protocol itself.</span>
+  </div>
+  <div class="poolbox" style="background:#13110d;border-color:#3a2f15;color:#f0d99a">
+    <strong>Tier 3 · Cryptographic flaw · $5,000</strong>
+    <span class="pool-meta" style="color:#f0d99a">A demonstrable cryptographic flaw in the protocol design or its reference implementation, verified by a reporter who is a published author at <strong>CRYPTO, EUROCRYPT, CCS, or IEEE S&P</strong> (or co-author on a paper accepted at one of those venues). Non-qualifying reporters: submit anyway — we pay Tier 2 and credit Tier 3 collaborators.</span>
+  </div>
+  <div class="poolbox" style="background:#1a0d0d;border-color:#5a1d1d;color:#ffb8b8">
+    <strong>Tier 4 · Protocol-level break · $10,000</strong>
+    <span class="pool-meta" style="color:#ffb8b8">An end-to-end break violating SP-SIMUL (the formal simultaneous-attack security property) with a working reproducer against the deployed reference. Tier 4 acceptance means we publicly withdraw the deployment-alignment claim until a corrected protocol ships.</span>
+  </div>
+  <h3>Disclosure timeline · 90 days, hard cap</h3>
+  <ul>
+    <li><strong>Day 0:</strong> Acknowledgement (within 24 hours of email).</li>
+    <li><strong>Day 0–3:</strong> Triage; tier assigned.</li>
+    <li><strong>Day 3–10:</strong> Verdict (valid / invalid / disputed) + bounty payout offer if valid.</li>
+    <li><strong>Day 10–90:</strong> Coordinated remediation.</li>
+    <li><strong>Day 90:</strong> <strong>Public disclosure regardless of patch status.</strong> Even if we have not shipped a fix, we publish the unmitigated finding at day 90. The cost of unpatched public disclosure is what keeps us honest.</li>
+  </ul>
+  <h3>Out of scope</h3>
+  <ul>
+    <li>Denial-of-service against the test infrastructure (single-cloud deployment is a known limitation per the paper § 11).</li>
+    <li>Social engineering of human contributors. Categorically rejected.</li>
+    <li>Compromise of third-party providers (Vercel, Cloudflare, GitHub, Google Workspace, AWS SES, Resend, Stripe). Report to the provider.</li>
+    <li>Dependency CVEs not exercised by AIAP code paths.</li>
+    <li>Findings against archived branches or pre-v0.1 snapshots — only <code>main</code> + most recent tagged release are in scope.</li>
+  </ul>
+  <h3>How to submit</h3>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:security@thecreativitymachine.ai">security@thecreativitymachine.ai</a> — PGP encouraged for Tier 3+ and for any submission containing exploitation artifacts.</li>
+    <li><strong>PGP fingerprint:</strong> <code>2986 EAC8 4A95 0330 86F0 CD22 6000 CFB6 7508 8DE8</code></li>
+    <li><strong>PGP key:</strong> <a href="/.well-known/security-public.asc">/.well-known/security-public.asc</a> · Verify the fingerprint against <a href="https://github.com/CrunchyJohnHaven/aiap/blob/main/SECURITY.md">SECURITY.md</a>, <a href="/.well-known/security.txt">security.txt</a>, and the CHANGELOG before encrypting.</li>
+    <li><strong>RFC 9116:</strong> <a href="/.well-known/security.txt">/.well-known/security.txt</a></li>
+    <li><strong>GitHub advisory:</strong> <a href="https://github.com/CrunchyJohnHaven/aiap/security/advisories/new">private security advisory</a></li>
+  </ul>
+  <p class="muted">The $100 public falsification bounty above and the tiered vulnerability-disclosure bounty are <em>separate programs</em> with separate scope and adjudication. A single finding may qualify for both; the higher payout wins, the lower is waived.</p>
+</section>
+
 <section id="challenge" aria-labelledby="challenge-h">
   <h2 id="challenge-h">The challenge</h2>
 

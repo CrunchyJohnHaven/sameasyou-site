@@ -1,0 +1,43 @@
+# RFC 9116 — https://www.rfc-editor.org/rfc/rfc9116
+#
+# Security disclosure policy for the SameAsYou.ai deployment of AIAP
+# (Aligned Inter-Agent Protocol). The canonical policy text lives at
+# https://github.com/CrunchyJohnHaven/aiap/blob/main/SECURITY.md
+#
+# This file SHOULD be considered the machine-readable contact directory.
+# The repository SECURITY.md SHOULD be considered the human-readable policy.
+
+Contact: mailto:security@thecreativitymachine.ai
+Contact: https://github.com/CrunchyJohnHaven/aiap/security/advisories/new
+
+# PGP public key for security@thecreativitymachine.ai
+# Fingerprint: 2986 EAC8 4A95 0330 86F0 CD22 6000 CFB6 7508 8DE8
+# Algorithm:   ed25519 (sign+cert) + cv25519 (encrypt)
+# Generated:   2026-05-12
+# Expires:     2028-05-11
+Encryption: https://sameasyou.ai/.well-known/security-public.asc
+
+# Policy and bounty tiers ($100 docs / $500 impl / $5,000 crypto / $10,000 protocol-level)
+Policy: https://github.com/CrunchyJohnHaven/aiap/blob/main/SECURITY.md
+Policy: https://sameasyou.ai/bounty
+
+# Public hall-of-fame for accepted submissions
+Acknowledgments: https://sameasyou.ai/bounty#ack
+
+# This file expires after one year. We will rotate annually or sooner if any
+# field changes (PGP rotation, contact change, policy revision).
+Expires: 2027-05-12T00:00:00.000Z
+
+# Preferred reporting languages — English is canonical; we accept submissions
+# in Mandarin (zh-CN). Other languages welcome; we will translate.
+Preferred-Languages: en, zh-CN
+
+# Canonical URL of this file
+Canonical: https://sameasyou.ai/.well-known/security.txt
+
+# Open hiring page (researchers who file accepted submissions are recruited)
+Hiring: https://sameasyou.ai/bounty#hiring
+
+# CSAF (Common Security Advisory Framework) feed — not yet published; will be
+# added when first advisory issues.
+# CSAF: https://sameasyou.ai/.well-known/csaf/provider-metadata.json
