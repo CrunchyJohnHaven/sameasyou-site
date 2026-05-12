@@ -82,6 +82,52 @@ a:hover{text-decoration:underline}
   <p>奖金池将随出资增长。随着主张经受时间考验,我们将为更高难度的挑战(伪造的 BGP 等价证明、停止-救援表决绕过、完美的欺骗性对齐)设立更高级别奖金(1,000美元、10,000美元、100,000美元)。今天:<strong>100美元,单一挑战,简洁,现场开放。</strong></p>
 </section>
 
+<section id="vulndisclosure" aria-labelledby="vulndisclosure-h">
+  <h2 id="vulndisclosure-h">漏洞披露奖金分级 · 最高 10,000 美元</h2>
+  <p>与上述公开可证伪性挑战分开,AIAP 协议代码库另设有针对技术漏洞的<strong>负责任披露</strong>分级奖金计划,通过权威的 <a href="https://github.com/CrunchyJohnHaven/aiap/blob/main/SECURITY.md">SECURITY.md</a> 披露流程提交。完整政策文本 — 90 天披露窗口、安全港条款、PGP 加密要求 — 见仓库。各级别概要:</p>
+  <div class="poolbox" style="background:#0d1a26;border-color:#1d3a5a;color:#a8d4ff">
+    <strong>一级 · 文档缺陷 · 100 美元</strong>
+    <span class="pool-meta" style="color:#a8d4ff">已发布文档中存在与事实不符或技术性错误,该错误实质性误导读者对协议安全属性的理解。</span>
+  </div>
+  <div class="poolbox" style="background:#0d1a26;border-color:#1d3a5a;color:#a8d4ff">
+    <strong>二级 · 实现缺陷 · 500 美元</strong>
+    <span class="pool-meta" style="color:#a8d4ff">参考 TypeScript 实现中违反不变量的缺陷,但不构成协议本身的密码学缺陷。</span>
+  </div>
+  <div class="poolbox" style="background:#13110d;border-color:#3a2f15;color:#f0d99a">
+    <strong>三级 · 密码学缺陷 · 5,000 美元</strong>
+    <span class="pool-meta" style="color:#f0d99a">协议设计或参考实现中可演示的密码学缺陷,且报告者为 <strong>CRYPTO、EUROCRYPT、CCS 或 IEEE S&P</strong> 的署名作者(或这些会议接收论文的合著者)。不符合该署名条件的报告者:仍欢迎提交 — 我们将按二级支付,并将三级署名归于协助审核的合作者。</span>
+  </div>
+  <div class="poolbox" style="background:#1a0d0d;border-color:#5a1d1d;color:#ffb8b8">
+    <strong>四级 · 协议层级突破 · 10,000 美元</strong>
+    <span class="pool-meta" style="color:#ffb8b8">违反 SP-SIMUL(形式化同时攻击安全属性)的端到端突破,需附可针对已部署参考实现工作的复现脚本。四级被接受意味着我们公开撤回部署对齐主张,直至修订协议上线。</span>
+  </div>
+  <h3>披露时间表 · 90 天硬上限</h3>
+  <ul>
+    <li><strong>第 0 天:</strong> 收到回执(邮件后 24 小时内)。</li>
+    <li><strong>第 0–3 天:</strong> 分流;分配级别。</li>
+    <li><strong>第 3–10 天:</strong> 裁决(有效 / 无效 / 有争议)+ 接受时的奖金支付方案。</li>
+    <li><strong>第 10–90 天:</strong> 协调修复。</li>
+    <li><strong>第 90 天:</strong> <strong>无论是否已修复,公开披露。</strong>即便我们尚未发布补丁,亦于第 90 天公开未缓解的发现。未修复公开披露的代价是我们保持诚实的机制。</li>
+  </ul>
+  <h3>不在范围内</h3>
+  <ul>
+    <li>针对测试基础设施的拒绝服务攻击(单云部署是论文 § 11 已知的局限性)。</li>
+    <li>针对人类协作者的社会工程。一律拒绝。</li>
+    <li>第三方供应商(Vercel、Cloudflare、GitHub、Google Workspace、AWS SES、Resend、Stripe)的入侵。请直接向供应商报告。</li>
+    <li>未被 AIAP 代码路径使用的依赖项 CVE。</li>
+    <li>针对已归档分支或 v0.1 前快照的发现 — 仅 <code>main</code> 与最新发布标签在范围内。</li>
+  </ul>
+  <h3>如何提交</h3>
+  <ul>
+    <li><strong>邮箱:</strong> <a href="mailto:security@thecreativitymachine.ai">security@thecreativitymachine.ai</a> — 三级及以上提交、含利用载体的提交鼓励使用 PGP 加密。</li>
+    <li><strong>PGP 指纹:</strong> <code>2986 EAC8 4A95 0330 86F0 CD22 6000 CFB6 7508 8DE8</code></li>
+    <li><strong>PGP 公钥:</strong> <a href="/.well-known/security-public.asc">/.well-known/security-public.asc</a> · 在加密前请通过 <a href="https://github.com/CrunchyJohnHaven/aiap/blob/main/SECURITY.md">SECURITY.md</a>、<a href="/.well-known/security.txt">security.txt</a> 与 CHANGELOG 三方核对指纹。</li>
+    <li><strong>RFC 9116:</strong> <a href="/.well-known/security.txt">/.well-known/security.txt</a></li>
+    <li><strong>GitHub 通告:</strong> <a href="https://github.com/CrunchyJohnHaven/aiap/security/advisories/new">私密安全通告</a></li>
+  </ul>
+  <p class="muted">以上 100 美元公开证伪挑战与分级漏洞披露计划为<em>两个独立项目</em>,各有独立的范围与裁定流程。同一发现可同时符合两个项目;以较高额者计,较低额者作废。</p>
+</section>
+
 <section id="challenge" aria-labelledby="challenge-h">
   <h2 id="challenge-h">挑战</h2>
 
