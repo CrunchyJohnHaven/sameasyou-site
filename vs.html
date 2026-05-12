@@ -70,6 +70,12 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
   <div class="subtitle">Eight competitors. Five axes that actually matter. One column nobody else has. We define the comparison on our terms because we think these are the right axes; you decide.</div>
 </header>
 
+
+<section id="correction" style="background:#1a0d0d;border:1px solid #4a1a1a;padding:18px 22px;margin:24px 0;border-radius:6px">
+  <h3 style="color:#ff8888;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;font-weight:600">Honest correction · 2026-05-12 ~11:00 ET</h3>
+  <p style="color:#cccccc;font-size:14px;margin:0;line-height:1.6">An earlier version of this page included specific founder-equity multipliers (e.g. "~350×" for OpenAI, "~150×" for Anthropic) that were not sourced. Those numbers were estimates rendered with false precision. They have been replaced with verifiable framings (private/public, valuation where reported, equity-disclosure status). Our own 1× claim is structural and chain-enforced — see <a href="/ledger.html">/ledger</a>. We caught this ourselves on the audit pass; in the spirit of /critics, we publish the correction here.</p>
+</section>
+
 <section id="table">
   <h2>The matrix</h2>
   <p class="muted">Axes chosen because they're the structural properties of "AI venture in 2026." Founder-equity-multiple = how much more the founder takes per unit of value created than the median worker. Verifiable mandate = is the operating mandate cryptographically attestable. Kill switch public = can anyone halt the AI from outside. Commons-funded = does revenue flow to a public commons or private capital. Open source = is the protocol open + auditable.</p>
@@ -79,7 +85,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
       <thead>
         <tr>
           <th>Venture</th>
-          <th>Founder-equity-multiple</th>
+          <th>Founder compensation structure</th>
           <th>Verifiable mandate</th>
           <th>Kill switch public</th>
           <th>Commons-funded</th>
@@ -90,7 +96,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
       <tbody>
         <tr>
           <td class="col0 our">Money Python</td>
-          <td class="our yes">1× — founder takes senior-contributor rate</td>
+          <td class="our yes">1× — founder takes the same per-task rate as any senior contributor (chain-enforced; the chain is the proof)</td>
           <td class="our yes">YES (BGP, 12/12 tests)</td>
           <td class="our yes">YES (HARP, 2-of-N quorum)</td>
           <td class="our yes">YES (every $ above cost)</td>
@@ -99,7 +105,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">OpenAI</td>
-          <td class="no">~350× (Altman + execs vs median)</td>
+          <td class="no">capped-profit structure; founder equity historically reported as $0 (Altman pre-2024); private valuation $300B+</td>
           <td class="no">NO (closed weights, closed mandate)</td>
           <td class="no">NO (Anthropic-style RLAIF; no public halt)</td>
           <td class="no">NO ($X billion private)</td>
@@ -108,7 +114,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">Anthropic</td>
-          <td class="no">~150× (estimated)</td>
+          <td class="no">private; ~$60B valuation; founder equity not publicly disclosed</td>
           <td class="partial">PARTIAL (Constitutional AI, but constitution is theirs)</td>
           <td class="no">NO (model-level only, no public halt)</td>
           <td class="no">NO ($X billion private)</td>
@@ -117,7 +123,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">Sierra Technologies</td>
-          <td class="no">~200× (Bret Taylor + co-founder vs operator)</td>
+          <td class="no">private; $15B valuation post-May-2026 Series E; founder equity standard early-stage</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
           <td class="no">NO ($15B valuation, private)</td>
@@ -126,7 +132,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">Mercor</td>
-          <td class="no">~100× (founders vs contractor median)</td>
+          <td class="no">private; founder equity standard; Nov 2025 contractor-pay dispute publicly reported</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
@@ -135,7 +141,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">Karya</td>
-          <td class="partial">~5× (ethical labor pay multiplier)</td>
+          <td class="partial">pays workers 20× local minimum wage (Karya's stated metric)</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
           <td class="partial">PARTIAL (development-org-funded)</td>
@@ -144,7 +150,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">RentAHuman</td>
-          <td class="no">~50× (typical platform)</td>
+          <td class="no">private; founder equity standard for marketplace platforms</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
@@ -153,7 +159,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">Artisan AI</td>
-          <td class="no">~80×</td>
+          <td class="no">private; $25M raised; founder equity standard</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
           <td class="no">NO</td>
@@ -162,7 +168,7 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
         </tr>
         <tr>
           <td class="col0">ERC-8004 Trustless Agents</td>
-          <td class="partial">N/A (decentralized — no single founder)</td>
+          <td class="partial">no single founder; authored as Ethereum standard (De Rossi et al.)</td>
           <td class="partial">PARTIAL (registry; no mandate-equality protocol)</td>
           <td class="partial">PARTIAL (reputation, not halt)</td>
           <td class="partial">PARTIAL (Ethereum-funded ecosystem)</td>
@@ -176,10 +182,10 @@ footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-to
 
 <section id="why">
   <h2>The one column that matters most</h2>
-  <p>If you read the table left-to-right, the most striking column is "Founder-equity-multiple." Every other 2026 AI venture has a founder taking 50×-350× the median worker. Money Python has a founder taking 1× — the same per-task pay as a senior contributor. There is no equity to liquidate. There is no path to a billion-dollar net worth above the contributor's share.</p>
+  <p>If you read the table left-to-right, the most striking column is "Founder compensation structure." Every other 2026 AI venture has founders holding meaningful equity stakes in privately-held companies, with all the standard upside-concentration that implies. Money Python has a founder taking a 1× senior-contributor rate, no equity above that, no path to a billion-dollar exit. We don't have a citation for what the median worker at Sierra or Mercor or RentAHuman actually earns, so we don't cite a multiplier — but the absence of equity concentration on our side is the distinguishing structural property.</p>
   <p>That is not voluntary modesty. That is structural: the chain enforces it. Any deviation from the published "no founder profit" rule would be a public, dated, signed misalignment — and would trigger a halt attestation. The chain is the proof, not the promise.</p>
   <div class="callout">
-    <strong>The 1× founder-equity-multiple is the distinctive feature.</strong>
+    <strong>The 1× founder-compensation structure is the distinctive feature.</strong>
     Every other comparator's structural shape is "concentrate the upside at the top." Money Python's structural shape is "distribute the upside in proportion to demonstrated work." The other four axes (verifiable mandate, public kill switch, commons-funded, open-source) reinforce the founder-equity claim — they make it auditable.
   </div>
 </section>
