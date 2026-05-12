@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Agent Governance Toolkit + AAO-Governed — composability, not competition · Same As You</title>
+<meta name="description" content="Microsoft's open-source Agent Governance Toolkit is the runtime-enforcement layer for autonomous AI agents. AAO-Governed (BGP, OBAC, AVS, HARP) is the cryptographic-governance layer on top. They compose; they don't compete. Honest comparison + working composability demo.">
+<meta property="og:title" content="Microsoft Agent Governance Toolkit + AAO-Governed — composability">
+<meta property="og:description" content="MS AGT is the runtime kernel; AAO-Governed is the cryptographic constitution that runs on top. Comparative table + working TypeScript demo.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sameasyou.ai/vs-microsoft.html">
+<link rel="canonical" href="https://sameasyou.ai/vs-microsoft.html">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;text y='52' font-size='52'&gt;∎&lt;/text&gt;&lt;/svg&gt;">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;background:#0a0a0a;color:#e8e8e8;line-height:1.65;padding:0;-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:0 24px 96px}
+nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;gap:18px;flex-wrap:wrap;font-size:13px;letter-spacing:0.04em;border-bottom:1px solid #1a1a1a}
+nav a{color:#888;text-decoration:none}
+nav a:hover{color:#fff}
+nav a.current{color:#fff}
+header{padding:80px 0 32px;text-align:center}
+.eyebrow{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#666;margin-bottom:24px}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.06;font-weight:300;letter-spacing:-0.02em;color:#f4f4f4;margin-bottom:24px}
+h1 em{font-style:normal;background:linear-gradient(90deg,#7fd1ff,#a3a3ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:19px;line-height:1.55;color:#aaa;margin-bottom:24px;font-weight:300;max-width:760px;margin-left:auto;margin-right:auto}
+section{padding:40px 0;border-top:1px solid #1a1a1a}
+h2{font-size:28px;font-weight:300;letter-spacing:-0.01em;margin-bottom:20px;color:#f4f4f4}
+h3{font-size:18px;font-weight:500;letter-spacing:0;color:#f4f4f4;margin:24px 0 12px}
+p{margin-bottom:16px;color:#bbb;font-size:16px;line-height:1.65}
+.tablewrap{overflow-x:auto;margin:24px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:880px}
+th,td{padding:12px 12px;text-align:left;border-bottom:1px solid #1a1a1a;vertical-align:top}
+th{color:#888;font-weight:500;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;background:#0d0d0d;position:sticky;top:0}
+th.ms{color:#7fb3ff;background:#0d1322}
+th.aao{color:#ffe055;background:#13110d}
+th.both{color:#9ee0a4;background:#0d1a13}
+td.col0{color:#fff;font-weight:600;white-space:nowrap}
+td.ms{background:rgba(127,179,255,0.05);color:#fff}
+td.aao{background:rgba(255,224,85,0.05);color:#fff}
+td.both{background:rgba(158,224,164,0.05);color:#fff;font-weight:500}
+td.yes{color:#9ee0a4}
+td.no{color:#888}
+td.partial{color:#ffb84a}
+td.note{color:#888;font-size:12px;font-style:italic}
+.muted{color:#777;font-size:14px}
+a{color:#7fd1ff;text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"SF Mono","Menlo",Consolas,monospace;font-size:13px;background:#141414;padding:2px 6px;border-radius:3px;color:#9ee0a4}
+pre{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:6px;padding:16px 18px;overflow-x:auto;margin:16px 0;font-size:13px;line-height:1.55}
+pre code{background:transparent;padding:0;color:#ccc}
+.callout{background:#0d1a26;border:1px solid #1d3a5a;border-radius:8px;padding:24px 28px;margin:24px 0;color:#b8d4f0}
+.callout strong{color:#fff;font-size:18px;display:block;margin-bottom:8px;font-weight:500}
+.callout.green{background:#0d2615;border-color:#1d5a2f;color:#9ee0a4}
+.layer-stack{display:flex;flex-direction:column;gap:8px;margin:24px 0;font-family:"SF Mono","Menlo",Consolas,monospace;font-size:13px}
+.layer{padding:14px 18px;border-radius:6px;border:1px solid #1a1a1a}
+.layer-1{background:#13110d;border-color:#3a3220;color:#ffe055}
+.layer-2{background:#0d1322;border-color:#1d3a5a;color:#7fb3ff}
+.layer-3{background:#0d0d0d;border-color:#1a1a1a;color:#888}
+.layer-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#666;margin-bottom:4px}
+ul{margin-left:24px;color:#bbb}
+ul li{margin-bottom:8px;line-height:1.6}
+footer{padding:64px 0 32px;color:#666;font-size:13px;text-align:center;border-top:1px solid #1a1a1a;line-height:1.7}
+@media (max-width:560px){
+  nav{gap:14px;font-size:12px}
+  header{padding:48px 0 24px}
+  section{padding:32px 0}
+}
+</style>
+</head>
+<body>
+<nav aria-label="Primary">
+  <a href="/">Home</a>
+  <a href="/intern.html">Interns</a>
+  <a href="/bounty.html">Bounty</a>
+  <a href="/competition.html">Competition</a>
+  <a href="/vs.html">vs</a>
+  <a href="/vs-microsoft.html" class="current">vs MS</a>
+  <a href="/manifesto.html">Manifesto</a>
+  <a href="/dennis.html">Dennis</a>
+  <a href="https://moneypython.ai">Money Python</a>
+  <a href="https://github.com/CrunchyJohnHaven/sameasyou-site">GitHub</a>
+</nav>
+<div class="container">
+
+<header>
+  <div class="eyebrow">Comparative positioning · 2026-05-12</div>
+  <h1>Microsoft Agent Governance Toolkit <em>+</em> AAO-Governed.</h1>
+  <div class="subtitle">Microsoft's open-source <a href="https://github.com/microsoft/agent-governance-toolkit">Agent Governance Toolkit</a> (April 2026, MIT) is the runtime-enforcement layer for autonomous AI agents — a kernel-style policy engine at sub-millisecond latency. AAO-Governed (BGP · OBAC · AVS · HARP) is the cryptographic-governance layer on top. The right move is composability.</div>
+</header>
+
+<section id="tldr">
+  <h2>TL;DR</h2>
+  <p>Microsoft shipped the right runtime layer. We're not building a competing one.</p>
+  <p>AAO-Governed solves three problems the MS toolkit explicitly does not address: (1) two agents proving they share a mandate <em>without revealing the mandate</em>, (2) every action signed and chained back to that mandate on a <em>public</em> append-only log, and (3) a halt-switch that <em>any witness</em> can pull, with a stake-bonded threshold counter-flip. These are not policy questions; they are cryptographic ones. They live above MS AGT's policy engine, not next to it.</p>
+
+  <div class="layer-stack">
+    <div class="layer layer-1">
+      <div class="layer-label">L2 — Cryptographic governance (AAO-Governed)</div>
+      BGP — mandate equality (Pedersen + Σ) · OBAC — attested action chain · AVS — replay verdicts · HARP — public halt quorum
+    </div>
+    <div class="layer layer-2">
+      <div class="layer-label">L1 — Runtime enforcement (Microsoft Agent Governance Toolkit)</div>
+      Agent OS · Agent Mesh · Agent Runtime · Agent SRE · Agent Compliance · Agent Marketplace · Agent Lightning
+    </div>
+    <div class="layer layer-3">
+      <div class="layer-label">L0 — Agent frameworks</div>
+      LangChain · CrewAI · AutoGen · Microsoft Agent Framework · Foundry Agent Service · LangGraph · LlamaIndex · PydanticAI · OpenAI Agents SDK
+    </div>
+  </div>
+
+  <p class="muted">L1 stops bad actions before they happen. L2 makes the agent's <em>commitments</em> verifiable, the agent's <em>history</em> public, and the <em>halt</em> available to anyone who notices a violation. The two layers compose cleanly because L1 already exposes the right public interfaces — <code>ToolCallInterceptor</code>, <code>BaseIntegration</code>, <code>PluginInterface</code>, <code>PolicyProviderInterface</code> — for an L2 to plug in.</p>
+</section>
+
+<section id="matrix">
+  <h2>The matrix</h2>
+  <p class="muted">Honest column-by-column reading. Where MS AGT covers, we credit it. Where AAO-Governed extends, we name what extends. The third column is the composed system — what you actually get when you adopt both.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th class="ms">Microsoft AGT</th>
+          <th class="aao">AAO-Governed</th>
+          <th class="both">Composed (both)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="col0" colspan="5" style="background:#0d0d0d;color:#888;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 12px">Runtime enforcement</td>
+        </tr>
+        <tr>
+          <td class="col0">Pre-execution policy enforcement (sub-ms)</td>
+          <td class="ms yes">YES — Agent OS, &lt;0.1ms p99</td>
+          <td class="aao no">no (not a policy engine)</td>
+          <td class="both yes">YES (via MS AGT)</td>
+          <td class="note">Stateless kernel; YAML / OPA Rego / Cedar</td>
+        </tr>
+        <tr>
+          <td class="col0">Framework integrations</td>
+          <td class="ms yes">YES — LangChain, CrewAI, ADK, MAF, LangGraph, LlamaIndex, OpenAI Agents, etc.</td>
+          <td class="aao no">no</td>
+          <td class="both yes">YES (via MS AGT)</td>
+          <td class="note">L0 ecosystem coverage is MS AGT's strongest property</td>
+        </tr>
+        <tr>
+          <td class="col0">Behavioral trust scoring (0–1000)</td>
+          <td class="ms yes">YES — Agent Mesh, five tiers</td>
+          <td class="aao no">no (binary attest / halt model)</td>
+          <td class="both yes">YES (via MS AGT)</td>
+          <td class="note">Dynamic trust as input to policy decisions</td>
+        </tr>
+        <tr>
+          <td class="col0">Execution rings &amp; resource limits</td>
+          <td class="ms yes">YES — Agent Runtime, CPU-style privilege rings</td>
+          <td class="aao no">no</td>
+          <td class="both yes">YES (via MS AGT)</td>
+          <td class="note">Borrowed from OS kernel design</td>
+        </tr>
+        <tr>
+          <td class="col0">Saga orchestration for multi-step transactions</td>
+          <td class="ms yes">YES — Agent Runtime</td>
+          <td class="aao no">no</td>
+          <td class="both yes">YES (via MS AGT)</td>
+          <td class="note">Compensating actions on partial failure</td>
+        </tr>
+        <tr>
+          <td class="col0">SLOs / error budgets / circuit breakers</td>
+          <td class="ms yes">YES — Agent SRE</td>
+          <td class="aao no">no</td>
+          <td class="both yes">YES (via MS AGT)</td>
+          <td class="note">SRE patterns applied to agents</td>
+        </tr>
+        <tr>
+          <td class="col0">OWASP Agentic AI Top 10 coverage</td>
+          <td class="ms yes">YES — 10/10 mapped</td>
+          <td class="aao partial">PARTIAL (covers identity, supply-chain, rogue-agent at L2)</td>
+          <td class="both yes">YES — full coverage with cryptographic depth on T03/T04/T10</td>
+          <td class="note">T03 identity, T04 supply, T10 rogue-agent benefit most from L2</td>
+        </tr>
+
+        <tr>
+          <td class="col0" colspan="5" style="background:#0d0d0d;color:#888;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 12px">Identity &amp; supply chain</td>
+        </tr>
+        <tr>
+          <td class="col0">Agent identity (DIDs, Ed25519)</td>
+          <td class="ms yes">YES — Agent Mesh</td>
+          <td class="aao yes">YES (Ed25519 + P-256 for PET)</td>
+          <td class="both yes">YES — interoperable DIDs</td>
+          <td class="note">Both use standard W3C DID + Ed25519</td>
+        </tr>
+        <tr>
+          <td class="col0">Inter-agent transport encryption (IATP)</td>
+          <td class="ms yes">YES — Agent Mesh</td>
+          <td class="aao no">no (transport-agnostic)</td>
+          <td class="both yes">YES (via MS AGT IATP)</td>
+          <td class="note">AAO-Governed runs over any authenticated channel</td>
+        </tr>
+        <tr>
+          <td class="col0">Plugin signing &amp; manifest verification</td>
+          <td class="ms yes">YES — Agent Marketplace, Ed25519</td>
+          <td class="aao no">no</td>
+          <td class="both yes">YES (via MS AGT)</td>
+          <td class="note">SLSA build provenance, Sigstore-style</td>
+        </tr>
+
+        <tr>
+          <td class="col0" colspan="5" style="background:#13110d;color:#ffe055;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 12px">Cryptographic governance — the AAO-Governed extension</td>
+        </tr>
+        <tr>
+          <td class="col0">Mandate-equality between two agents (private)</td>
+          <td class="ms no">no (no protocol for it)</td>
+          <td class="aao yes">YES — BGP (Pedersen commitments + non-interactive Σ-equality on P-256)</td>
+          <td class="both yes">YES — agents prove <code>mandate_A == mandate_B</code> without revealing either</td>
+          <td class="note">Sub-ms handshake; 12/12 protocol tests in <a href="https://github.com/CrunchyJohnHaven/aiap">aiap</a></td>
+        </tr>
+        <tr>
+          <td class="col0">Public append-only chain of agent actions</td>
+          <td class="ms partial">PARTIAL — internal audit log, vendor-controlled</td>
+          <td class="aao yes">YES — OBAC, public, signed, subject-annotatable</td>
+          <td class="both yes">YES — every gated action also chained on OBAC</td>
+          <td class="note">CT-style (RFC 9162); Carfax-for-AI-agents framing</td>
+        </tr>
+        <tr>
+          <td class="col0">Third-party replay &amp; alignment verdicts</td>
+          <td class="ms no">no (compliance is self-reported)</td>
+          <td class="aao yes">YES — AVS, Community-Notes-style bridging synthesizer</td>
+          <td class="both yes">YES — independent verifiers replay OBAC entries against MS AGT policy state</td>
+          <td class="note">Misalignment becomes a public dated fact, not an internal claim</td>
+        </tr>
+        <tr>
+          <td class="col0">Halt switch — who can pull it</td>
+          <td class="ms partial">PARTIAL — emergency kill switch (admin / operator)</td>
+          <td class="aao yes">YES — HARP, <strong>any witness</strong> can flip a stake-bonded halt bit; FROST threshold can counter-flip</td>
+          <td class="both yes">YES — HARP halt event drives MS AGT kill switch automatically</td>
+          <td class="note">Public-quorum halt is the structural difference</td>
+        </tr>
+        <tr>
+          <td class="col0">Stake-bonded liability for halt assertions</td>
+          <td class="ms no">no</td>
+          <td class="aao yes">YES — slashable stake on false halts</td>
+          <td class="both yes">YES</td>
+          <td class="note">Makes halt-griefing economically irrational</td>
+        </tr>
+        <tr>
+          <td class="col0">Public bounty for falsifying the mandate</td>
+          <td class="ms no">no (responsible-disclosure track)</td>
+          <td class="aao yes">YES — tiered $100 → $100K, public attestation on OBAC</td>
+          <td class="both yes">YES</td>
+          <td class="note"><a href="/bounty.html">Full bounty terms</a>; 90-day statute of limitations</td>
+        </tr>
+
+        <tr>
+          <td class="col0" colspan="5" style="background:#0d0d0d;color:#888;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 12px">Open-source posture</td>
+        </tr>
+        <tr>
+          <td class="col0">License</td>
+          <td class="ms yes">MIT</td>
+          <td class="aao yes">MIT-style permissive / Apache 2.0 (aiap)</td>
+          <td class="both yes">Permissive end-to-end</td>
+          <td class="note">No vendor lock-in on either layer</td>
+        </tr>
+        <tr>
+          <td class="col0">Cross-language SDKs</td>
+          <td class="ms yes">Python, TypeScript, .NET (Rust + Go in monorepo)</td>
+          <td class="aao partial">PARTIAL — TypeScript reference impl (aiap)</td>
+          <td class="both yes">TS-first integration path is fully wired</td>
+          <td class="note">Python + .NET adapters are tractable next steps</td>
+        </tr>
+        <tr>
+          <td class="col0">Foundation governance trajectory</td>
+          <td class="ms yes">Stated intent to move to foundation (LF AI &amp; Data / OWASP)</td>
+          <td class="aao yes">Open from day one; ARCHES / AIES submission track</td>
+          <td class="both yes">Both layers can live in neutral foundations</td>
+          <td class="note">MS published this intent in the launch blog</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout green">
+    <strong>Read the table left-to-right.</strong>
+    Microsoft's column is full of YES marks on every runtime-enforcement row — they shipped that layer correctly. The AAO-Governed column is full of YES marks on every <em>cryptographic-governance</em> row that MS AGT does not address. The third column — both — is the production target. The two layers do different jobs.
+  </div>
+</section>
+
+<section id="composition">
+  <h2>The composability layer (working demo)</h2>
+  <p>We ship a small TypeScript wrapper that demonstrates exactly how the two layers compose. It is ~150 lines, MIT-licensed, and runnable. The wrapper intercepts MS AGT's <code>ToolCallInterceptor</code> path and adds two cryptographic gates around it:</p>
+  <ol style="margin-left:24px;color:#bbb">
+    <li><strong style="color:#fff">BGP gate (pre-call)</strong> — before any agent-to-agent tool call, run a Pedersen-commitment Σ-equality handshake on the two parties' mandates. If the mandates don't match, MS AGT never sees the call.</li>
+    <li><strong style="color:#fff">OBAC attestation (post-decision)</strong> — every gated decision is appended to a public OBAC log entry signed by the agent's DID. The MS AGT decision payload is recorded verbatim alongside.</li>
+    <li><strong style="color:#fff">HARP overlay (out-of-band)</strong> — a subscriber listens for HARP halt-quorum events. On flip, the wrapper triggers MS AGT's emergency kill switch via the documented runtime API.</li>
+  </ol>
+  <p>Demo lives at <code><a href="https://github.com/CrunchyJohnHaven/sameasyou-site/tree/main/demo/ms-composability">demo/ms-composability/</a></code> in this repo. Run it with:</p>
+  <pre><code>npm install @microsoft/agent-governance-sdk
+npx tsx demo/ms-composability/index.ts</code></pre>
+  <p class="muted">The wrapper is intentionally thin — most of the heavy lifting is delegated to MS AGT (policy enforcement) and to the AAO-Governed reference implementation at <a href="https://github.com/CrunchyJohnHaven/aiap">github.com/CrunchyJohnHaven/aiap</a> (cryptographic primitives). The 150-line file is the <em>composition</em>, not the substrate.</p>
+</section>
+
+<section id="why-composability">
+  <h2>Why composability, not competition</h2>
+  <p>Three reasons we do not frame this as adversarial:</p>
+  <ul>
+    <li><strong style="color:#fff">Different layers of the stack.</strong> Microsoft solved the runtime-enforcement problem. The cryptographic-governance problem is a different problem. Treating them as alternatives is a category error — like treating mTLS and OPA as competitors.</li>
+    <li><strong style="color:#fff">Procurement asymmetry favors composition.</strong> Enterprises will adopt MS AGT for reasons that have nothing to do with technical merit (procurement defaults, Azure integration, vendor consolidation). Building a competing runtime would force buyers into a choice they don't want to make. Building <em>on top</em> of MS AGT meets them where they already are.</li>
+    <li><strong style="color:#fff">Honest credit is durable.</strong> The MS toolkit's open-source posture is real (MIT, foundation trajectory, OWASP alignment, 9,500 tests). We have no interest in framing them as the enemy. Naming them as the runtime layer and us as the governance layer is the version of the story that survives the longest.</li>
+  </ul>
+  <p>For the full positioning argument, see <a href="https://github.com/CrunchyJohnHaven/sameasyou-site/blob/main/docs/POSITIONING_VS_MICROSOFT.md">docs/POSITIONING_VS_MICROSOFT.md</a>.</p>
+</section>
+
+<section id="what-mscovers">
+  <h2>Honest acknowledgement: what Microsoft already covers</h2>
+  <p>It would be intellectually dishonest to under-credit the MS toolkit. A short and honest list:</p>
+  <ul>
+    <li>Stateless policy enforcement at &lt;0.1ms p99 — exactly the right design choice for the kernel-equivalent layer.</li>
+    <li>Native integrations with every major agent framework — LangChain, CrewAI, AutoGen, Microsoft Agent Framework, Foundry Agent Service, ADK, LangGraph, LlamaIndex, OpenAI Agents SDK, PydanticAI, Haystack, Dify.</li>
+    <li>OWASP Agentic AI Top 10 mapped 10/10, with the right primitives at each row (semantic intent classifier for goal hijacking, MCP gateway for tool misuse, DID + behavioral trust for identity abuse, execution rings for code execution, IATP for insecure communications, circuit breakers for cascading failures, approval workflows with quorum for human-agent trust exploitation).</li>
+    <li>Five-language SDK matrix (Python, TypeScript, Rust, Go, .NET) with consistent surface area.</li>
+    <li>9,500+ tests, continuous fuzzing via ClusterFuzzLite, OpenSSF Scorecard tracked, CodeQL + Dependabot, SLSA-compatible build provenance, pinned hashed CI dependencies.</li>
+    <li>Stated intent to move governance to a neutral foundation (LF AI &amp; Data, OWASP).</li>
+  </ul>
+  <p>None of this is what we are building, because it doesn't need to be re-built.</p>
+</section>
+
+<section id="what-we-add">
+  <h2>What we add — in one paragraph each</h2>
+  <h3>BGP — Bradley-Gavini Protocol</h3>
+  <p>Two agents prove <code>directive_A == directive_B</code> without revealing the directive. Pedersen commitments on NIST P-256 plus a non-interactive Σ-protocol of equality (Schnorr + Fiat-Shamir). Sub-millisecond per handshake on commodity hardware. Used as a pre-flight check before MS AGT processes any inter-agent call: if the parties don't share a mandate, the call never enters the runtime.</p>
+  <h3>OBAC — Origin-Bound Attestation Chain</h3>
+  <p>An append-only public log binding each agent's actions to the mandate it committed to under BGP. Certificate-Transparency lineage (RFC 9162). Subjects can <em>annotate</em> their entries but cannot <em>rewrite</em> them. The point is to make agent history a public fact, not a vendor-controlled audit log.</p>
+  <h3>AVS — Alignment-Verified Synthesizer</h3>
+  <p>Independent third parties replay OBAC entries against the MS AGT policy state at the time, and publish verdicts. Community-Notes-style bridging synthesizer rather than a single source of truth. Misalignment becomes a public, dated, attested fact rather than an internal claim.</p>
+  <h3>HARP — Halt-and-Rescue Protocol</h3>
+  <p>Any witness who detects a verified violation can flip a stake-bonded halt bit. A FROST threshold of registered counter-witnesses can counter-flip. The wrapper subscribes to flip events and drives MS AGT's emergency kill switch automatically. Stake-bonding makes griefing economically irrational; threshold counter-flip makes single-actor griefing recoverable.</p>
+</section>
+
+<section id="how-to-adopt">
+  <h2>How to adopt both layers</h2>
+  <p>For a team that has already adopted MS AGT (or is planning to):</p>
+  <ol style="margin-left:24px;color:#bbb">
+    <li><code>npm install @microsoft/agent-governance-sdk</code> — the MS runtime layer. (Or <code>pip install agent-governance-toolkit[full]</code>.)</li>
+    <li>Clone <a href="https://github.com/CrunchyJohnHaven/aiap">github.com/CrunchyJohnHaven/aiap</a> — the AAO-Governed reference implementation (TypeScript, 38/38 protocol tests).</li>
+    <li>Drop in the wrapper from <a href="https://github.com/CrunchyJohnHaven/sameasyou-site/tree/main/demo/ms-composability">demo/ms-composability/</a>. Three function exports: <code>withBgpGate()</code>, <code>withObacAttestation()</code>, <code>subscribeHarpHalt()</code>.</li>
+    <li>Register the wrapper with MS AGT via its <code>ToolCallInterceptor</code> hook. No core modifications to MS AGT required.</li>
+  </ol>
+  <p>The integration is additive. If the wrapper is removed, MS AGT runs exactly as before. If MS AGT is swapped for a different runtime layer, the wrapper still functions against any runtime that exposes a comparable interceptor interface.</p>
+</section>
+
+<section id="cta">
+  <h2>Three things to do with this page</h2>
+  <ul>
+    <li><strong style="color:#fff">If you're a Microsoft AGT user</strong>: read <a href="https://github.com/CrunchyJohnHaven/sameasyou-site/blob/main/demo/ms-composability/README.md">demo/ms-composability/README.md</a>. The wrapper is &lt;150 lines and runnable. Open issues are welcome.</li>
+    <li><strong style="color:#fff">If you're on the MS AGT team</strong>: we'd like to upstream a reference adapter. Email <a href="mailto:john@credexai.xyz">john@credexai.xyz</a>. We can also annotate any factual error on this page — see <a href="/critics.html">/critics</a>.</li>
+    <li><strong style="color:#fff">If you're an enterprise evaluator</strong>: the composed stack maps to <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Agentic Top 10</a> with cryptographic depth on T03 / T04 / T10. Procurement-grade docs at <a href="https://github.com/CrunchyJohnHaven/aiap/blob/main/paper/AIAP_v0.3.md">aiap/paper/AIAP_v0.3.md</a>.</li>
+  </ul>
+</section>
+
+<footer>
+  Same As You · Comparative positioning · 2026-05-12<br>
+  <a href="/">Home</a> · <a href="/vs.html">vs (others)</a> · <a href="/manifesto.html">Manifesto</a> · <a href="/critics.html">Critics</a> · <a href="https://moneypython.ai">Money Python</a> · <a href="https://github.com/CrunchyJohnHaven">repos</a>
+  <div style="margin-top:24px;padding-top:16px;border-top:1px solid #1a1a1a;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#888">L1 enforces · L2 verifies · They compose.</div>
+</footer>
+
+</div>
+</body>
+</html>
